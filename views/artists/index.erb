@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+</html>
+
+  <body>
+
+  <p>Artists</p>
+
+  <ul>
+    <% artists.each do |artist| %>
+      <li>
+        <a href="/artists/<%= artist.id %>">
+          <%= artist.name %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3>Add Artist Here</h3>
+  
+  <form action="/artists" method="post">
+    <input type="text" name="name" required>
+    <button>Add Artists</button>
+  </form>
+
+  </body>
+
+</html>

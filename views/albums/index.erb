@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+
+<html>
+
+  <body>
+
+    <h1><%= album.name %></h1>
+
+    <ul>
+      <%= album.songs.each do |song| %>
+        <li><%= song.name %></li>
+        <% end %>
+    </ul>
+
+    <form action='/song' method="post">
+      <!-- <input type="hidden" name="album_id" value="<%=# album_id %>"> -->
+      <input type="text" name="name">
+    </form>
+
+  </body>
+
+</html>
