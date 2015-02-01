@@ -9,12 +9,16 @@ after do
   ActiveRecord::Base.connection.close
 end
 
+
+######################## HOMEPAGE ONLY
 #get the homepage
 get("/") do
 
   erb :index
 end
 
+
+################### Get the artists and allow to add artists
 #get all artists
 get("/artists") do
 
@@ -32,6 +36,8 @@ post('/artists') do
   erb(:"artists/index", locals: {artists: Artists.all()})
 end
 
+
+##################### Albums for the artists and add albums
 #send the albums to the show.erb for the artist
 get("/artists/:id") do
   artist = Artists.find_by({id: params[:id].to_i})
@@ -52,6 +58,8 @@ post("/albums") do
   erb :"artists/show", locals: {artist: artist}
 end
 
+
+####################### Select an album and add songs
 #select the album of the selected album id
 get("/albums/:id") do
   album = Albums.find_by({id: params[:id]})
@@ -74,6 +82,8 @@ post("/song") do
   erb :"albums/index", locals: {album: album}
 end
 
+
+####################### Complete destroy section, delete artists/albums/songs
 #delete song
 delete("/song/:id") do
   song = Songs.find_by({id: params[:id].to_i})
@@ -83,7 +93,27 @@ delete("/song/:id") do
   redirect "/artists"
 end
 
+#delete album
+delete("/album/:id")do
+  album = Albums.find_by({id: params[:id].to_i})
+
+  album.destroy
+
+  redirect "/"
+end
+
+#delete artist
+delete("/artist/:id")do
+  artist = Artists.find_by({id: params[:id].to_i})
+
+  artist.destroy
+
+  redirect"/"
+end
+
+
+######################### Edit songs
 #edit song
 put("/edit/:id") do
-  
+
 end

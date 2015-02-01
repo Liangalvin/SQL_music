@@ -13,6 +13,10 @@
           <%= artist.name %>
         </a>
       </li>
+      <form action="/artist/<%= artist.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button>Delete Artist</button>
+      </form>
     <% end %>
   </ul>
 

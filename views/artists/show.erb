@@ -12,6 +12,10 @@
         <li>
           <a href="/albums/<%= album.id %>"><%= album.name %></a>
         </li>
+        <form action="/album/<%=album.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button>Delete Album</button>
+        </form>
         <% end %>
 
     </ul>
