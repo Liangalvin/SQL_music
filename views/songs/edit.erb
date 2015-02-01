@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+
+<html>
+
+  <body>
+
+    <h1>Edit <%= song.name %></h1>
+
+    <form action="/edit/<%= song.id %>" method="put">
+      <input type="hidden" name="method" value="put">
+      <input type="text" name="name" value="<%= song.name %>">
+    </form>
+
+  </body>
+
+</html>

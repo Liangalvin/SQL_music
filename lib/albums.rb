@@ -5,6 +5,6 @@ class Albums < ActiveRecord::Base
     Songs.where({album_id: self.id })
   end
   def artists
-    Artists.find({id: self.id})
+    Artists.find_by({id: self.artist_id})
   end
 end

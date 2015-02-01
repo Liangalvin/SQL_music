@@ -1,26 +1,27 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
 <html>
 
   <body>
+
     <h1><%= artist.name %></h1>
 
 
     <ul><%= artist.name %>'s Albums:
        <% artist.albums.each do |album| %>
         <li>
-          <a href="/albums/<%= album.name %>"><%= album.name %></a>
+          <a href="/albums/<%= album.id %>"><%= album.name %></a>
         </li>
         <% end %>
 
     </ul>
 
     <h3>Add Album Here</h3>
-    
+
     <form action="/albums" method="post">
       <input type="hidden" name="artist_id" value="<%= artist.id %>">
       <input type="text" name="name" required>
-      <button>Update Now</button>
+      <button>Update Albums Now</button>
     </form>
 
   </body>

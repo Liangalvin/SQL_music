@@ -7,14 +7,22 @@
     <h1><%= album.name %></h1>
 
     <ul>
-      <%= album.songs.each do |song| %>
+      <% album.songs.each do |song| %>
         <li><%= song.name %></li>
+        <form action="/song/edit/<%= song.id %>" method="put">
+          <button>Edit Song</button>
+        </form>
+        <form action="/song/<%=song.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button>Delete Song</button>
+        </form>
         <% end %>
     </ul>
 
-    <form action='/song' method="post">
-      <!-- <input type="hidden" name="album_id" value="<%=# album_id %>"> -->
+    <form action="/song" method="post">
+      <input type="hidden" name="album_id" value="<%=album.id %>">
       <input type="text" name="name">
+      <button>Add a song</button>
     </form>
 
   </body>
